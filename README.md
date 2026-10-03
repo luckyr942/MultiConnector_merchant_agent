@@ -9,7 +9,7 @@
   <img src="https://img.shields.io/badge/MCP%20Protocol-1.6.1-purple.svg?style=flat-square" alt="MCP Protocol" />
   <img src="https://img.shields.io/badge/Node.js-%3E%3D18.0.0-green.svg?style=flat-square&logo=node.js" alt="Node.js" />
   <img src="https://img.shields.io/badge/Tests-14%20Passed-brightgreen.svg?style=flat-square&logo=vitest" alt="Vitest" />
-  <img src="https://img.shields.io/badge/License-MIT-orange.svg?style=flat-square" alt="License" />
+  <!-- <img src="https://img.shields.io/badge/License-MIT-orange.svg?style=flat-square" alt="License" /> -->
 </p>
 
 ---
