@@ -2,9 +2,7 @@ import { createAuthHeaders, type AuthStrategy } from './auth.js';
 import { executeWithRetry } from './retry.js';
 import { Logger } from './logger.js';
 
-/**
- * Token Bucket Rate Limiter — client-side pacing to prevent 429s.
- */
+// Token bucket rate limiter to prevent hitting provider API rate limits
 export class TokenBucketRateLimiter {
   private tokens: number;
   private lastRefill: number;
@@ -43,10 +41,7 @@ export interface HttpClientConfig {
   extraHeaders?: Record<string, string>;
 }
 
-/**
- * Resilient HTTP Client
- * Used by every merchant provider adapter.
- */
+// Resilient HTTP client used across provider adapters
 export class ResilientHttpClient {
   private readonly baseUrl: string;
   private readonly authHeaders: Record<string, string>;

@@ -1,7 +1,6 @@
-/**
- * Interactive Agent Demo — Simulates an Agent Studio session
- * Run: npm run demo
- */
+// Interactive agent demo simulating merchant support queries
+// Run using: npm run demo
+
 import { loadFixture } from '../fixtures/loader.js';
 import { normalizeWooOrder } from '../providers/woocommerce/orders.js';
 import { normalizeWooProduct } from '../providers/woocommerce/products.js';
@@ -32,7 +31,7 @@ async function runDemo() {
   const products = await loadFixture('woocommerce/products.list.json') as any[];
   const tickets = await loadFixture('freshdesk/tickets.list.json') as any[];
 
-  // ── Demo 1: Order Lookup ───────────────────────────────────────────────────
+  // Demo 1: Order Lookup
   merchantMessage('"Where is order #1001 and was the payment successful?"');
   agentMessage('Calling → get_order(1001)...');
   const order1001 = normalizeWooOrder(orders.find(o => o.id === 1001));
@@ -43,7 +42,7 @@ async function runDemo() {
     `Customer city: ${order1001.customer.city}.`
   );
 
-  // ── Demo 2: Failed Payment Triage ──────────────────────────────────────────
+  // Demo 2: Failed Payment Triage
   merchantMessage('"Show me all orders where payment failed today."');
   agentMessage('Calling → search_orders(payment_status: "failed")...');
   const failedOrders = orders.map(normalizeWooOrder).filter(o => o.payment.status === 'failed');
@@ -53,14 +52,14 @@ async function runDemo() {
     failedOrders.map(o => `  • Order #${o.order_number} — ₹${o.financials.total} via ${o.payment.method_title}`).join('\n')
   );
 
-  // ── Demo 3: Inventory Check ────────────────────────────────────────────────
+  // Demo 3: Inventory Check
   merchantMessage('"How many units of ACME-SW-02 smartwatches do we have?"');
   agentMessage('Calling → get_inventory("ACME-SW-02")...');
   const sw02 = products.find(p => p.sku === 'ACME-SW-02');
   print('get_inventory(ACME-SW-02)', { sku: sw02.sku, name: sw02.name, units_available: sw02.stock_quantity, in_stock: sw02.stock_status === 'instock' });
   agentMessage(`Only ${sw02.stock_quantity} units of "${sw02.name}" remain in stock. ⚠️ Low stock alert.`);
 
-  // ── Demo 4: Ticket Triage ──────────────────────────────────────────────────
+  // Demo 4: Ticket Triage
   merchantMessage('"Show me all urgent open support tickets."');
   agentMessage('Calling → search_tickets(status: "open", priority: "urgent")...');
   const urgentTickets = tickets.map(normalizeFreshdeskTicket).filter(t => t.priority === 'urgent');
@@ -71,7 +70,7 @@ async function runDemo() {
       : 'No urgent open tickets at this time.'
   );
 
-  // ── Demo 5: Multi-step Reasoning ──────────────────────────────────────────
+  // Demo 5: Multi-step Reasoning
   merchantMessage('"Which products were in failed-payment orders today?"');
   agentMessage('Step 1 → search_orders(payment_status: "failed")');
   agentMessage('Step 2 → Extracting product SKUs from failed orders...');
