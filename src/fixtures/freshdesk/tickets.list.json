@@ -1,0 +1,5 @@
+[
+  { "id": 101, "subject": "Payment failed but amount deducted", "status": 2, "priority": 4, "tags": ["payment", "razorpay"], "requester": { "name": "Rahul Sharma", "email": "rahul.sharma@example.com" }, "description_text": "I placed an order and money was deducted but order shows failed. Please help.", "created_at": "2026-10-03T09:30:00Z", "updated_at": "2026-10-03T09:30:00Z" },
+  { "id": 102, "subject": "Order not delivered after 7 days", "status": 2, "priority": 3, "tags": ["delivery", "logistics"], "requester": { "name": "Priya Patel", "email": "priya.patel@test.com" }, "description_text": "My order #1001 was placed 7 days ago but has not been delivered yet.", "created_at": "2026-10-02T14:00:00Z", "updated_at": "2026-10-02T14:00:00Z" },
+  { "id": 103, "subject": "Wrong item delivered", "status": 3, "priority": 3, "tags": ["wrong-item", "returns"], "requester": { "name": "Ananya Iyer", "email": "ananya@company.in" }, "description_text": "I ordered USB-C charger but received a different product.", "created_at": "2026-10-01T11:00:00Z", "updated_at": "2026-10-03T10:00:00Z" }
+]

@@ -1,0 +1,6 @@
+[
+  { "id": 101, "name": "Acme ANC Wireless Headphones Pro", "sku": "ACME-WH-01", "price": "2999", "regular_price": "3499", "stock_status": "instock", "stock_quantity": 14, "manage_stock": true, "categories": [{"name": "Audio"}], "short_description": "Active Noise Cancelling Over-Ear Headphones" },
+  { "id": 102, "name": "Acme Smart Fitness Watch V2", "sku": "ACME-SW-02", "price": "4499", "regular_price": "4999", "stock_status": "instock", "stock_quantity": 4, "manage_stock": true, "categories": [{"name": "Wearables"}], "short_description": "AMOLED Smartwatch with SpO2 monitoring" },
+  { "id": 103, "name": "Acme 65W GaN Fast Charger USB-C", "sku": "ACME-CH-03", "price": "1299", "regular_price": "1499", "stock_status": "instock", "stock_quantity": 52, "manage_stock": true, "categories": [{"name": "Accessories"}], "short_description": "Compact 65W Dual Port USB-C Power Adapter" },
+  { "id": 104, "name": "Acme RGB Mechanical Gaming Keyboard", "sku": "ACME-KB-04", "price": "3899", "regular_price": "3899", "stock_status": "outofstock", "stock_quantity": 0, "manage_stock": true, "categories": [{"name": "Gaming"}], "short_description": "Hot-swappable mechanical switches with per-key RGB" }
+]
