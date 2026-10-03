@@ -45,7 +45,7 @@ async function runDemo() {
   // Demo 2: Failed Payment Triage
   merchantMessage('"Show me all orders where payment failed today."');
   agentMessage('Calling → search_orders(payment_status: "failed")...');
-  const failedOrders = orders.map(normalizeWooOrder).filter(o => o.payment.status === 'failed');
+  const failedOrders = orders.map(o => normalizeWooOrder(o)).filter(o => o.payment.status === 'failed');
   print('search_orders(payment_status=failed)', failedOrders);
   agentMessage(
     `Found ${failedOrders.length} failed payment order(s):\n` +
@@ -62,7 +62,7 @@ async function runDemo() {
   // Demo 4: Ticket Triage
   merchantMessage('"Show me all urgent open support tickets."');
   agentMessage('Calling → search_tickets(status: "open", priority: "urgent")...');
-  const urgentTickets = tickets.map(normalizeFreshdeskTicket).filter(t => t.priority === 'urgent');
+  const urgentTickets = tickets.map(t => normalizeFreshdeskTicket(t)).filter(t => t.priority === 'urgent');
   print('search_tickets(status=open, priority=urgent)', urgentTickets);
   agentMessage(
     urgentTickets.length > 0
@@ -74,7 +74,7 @@ async function runDemo() {
   merchantMessage('"Which products were in failed-payment orders today?"');
   agentMessage('Step 1 → search_orders(payment_status: "failed")');
   agentMessage('Step 2 → Extracting product SKUs from failed orders...');
-  const failedItems = orders.map(normalizeWooOrder).filter(o => o.payment.status === 'failed').flatMap(o => o.items);
+  const failedItems = orders.map(o => normalizeWooOrder(o)).filter(o => o.payment.status === 'failed').flatMap(o => o.items);
   const skus = [...new Set(failedItems.map(i => i.sku))];
   agentMessage(`Step 3 → Checking inventory for: ${skus.join(', ')}`);
   const inventory = skus.map(sku => {
