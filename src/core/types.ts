@@ -12,8 +12,8 @@ export type StockStatus = 'instock' | 'outofstock' | 'onbackorder' | 'unknown';
 export interface UnifiedCustomer {
   id?: string | number;
   name: string;
-  email: string;   // Masked for privacy
-  phone: string;   // Masked for privacy
+  email: string;   
+  phone: string;   
   city?: string;
   state?: string;
   country?: string;
